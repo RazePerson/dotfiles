@@ -1,9 +1,9 @@
 #This file contains my personal aliases
 
-alias zshconfig="vim ~/.zshrc"
-alias zshaliases="vim ~/.zsh_aliases"
+alias zshconfig="vim $DOTFILES_HOME/.zshrc"
+alias zshaliases="vim $DOTFILES_HOME/.zsh_aliases"
 alias q="exit"
-alias vimconfig="vim ~/.vimrc"
+alias vimconfig="vim $DOTFILES_HOME/tools/vim/.vimrc"
 
 #Uncomment if you want to use python3:
 alias python=/usr/bin/python2.7
