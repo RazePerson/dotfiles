@@ -36,11 +36,28 @@ call plug#end()
 " Split open at bottom and right instead of top and left:
 	set splitbelow splitright
 
+" Shortcutting for console mode:
+	cnoremap <C-j> <Down>
+	cnoremap <C-k> <Up>
+	cnoremap <C-h> <Left>
+	cnoremap <C-l> <Right>
+
+" Shortcutting for tab navitation:
+	nnoremap <C-l> :tabnext<CR>
+	nnoremap <C-h> :tabprevious<CR>
+
 " Shortcutting for split navigation:
-	map <C-h> <C-w>h
-	map <C-j> <C-w>j
-	map <C-k> <C-w>k
-	map <C-l> <C-w>l
+"	nnoremap <C-h> <C-w>h
+"	nnoremap <C-j> <C-w>j
+"	nnoremap <C-k> <C-w>k
+"	nnoremap <C-l> <C-w>l
+
+" Insert mode remap:
+	inoremap <C-H> <Left>
+	inoremap <C-J> <Down>
+	inoremap <C-K> <Up>
+	inoremap <C-L> <Right>
+
 " Compile document (groff, LaTeX etc):
 	map <leader>c :w! \| !compiler <c-r>%<CR><CR>
 

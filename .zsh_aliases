@@ -9,5 +9,4 @@ alias vimconfig="vim ~/.vimrc"
 alias python=/usr/bin/python2.7
 
 #Aliases to take out
-unalias '...'
 unalias gp

@@ -68,17 +68,17 @@ ZSH_THEME="bira"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions docker docker-compose)
+plugins=(git zsh-autosuggestions docker)
 
 source $ZSH/oh-my-zsh.sh
 
-# Uncomment if you have java installed (e.g. java 12):
-# if [ -d "/opt/java/jdk-12.0.1/bin" ]; then
-# 	 export JAVA_HOME=/opt/java/jdk-12.0.1
-#	 export PATH=$PATH:$JAVA_HOME
-# fi
+#if [ -d "/opt/java/jdk-12.0.1/bin" ]; then
+#	export JAVA_HOME=/opt/java/jdk-12.0.1
+#	export PATH=$PATH:$JAVA_HOME
+#fi
 
 export PATH="$PATH:$HOME/bin"
+
 export PATH="$PATH:$HOME/scripts"
 
 export PATH=$PATH:~/.vim/bundle/vim-live-latex-preview/bin
@@ -100,16 +100,16 @@ export READER='qpdfview'
 # fi
 
 # VIM MODE:
-bindkey -v
-
-function zle-line-init zle-keymap-select {
-    RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
-    RPS2=$RPS1
-    zle reset-prompt
-}
-
-zle -N zle-line-init
-zle -N zle-keymap-select
+# bindkey -v
+#
+# function zle-line-init zle-keymap-select {
+#     RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+#     RPS2=$RPS1
+#     zle reset-prompt
+# }
+#
+# zle -N zle-line-init
+# zle -N zle-keymap-select
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
