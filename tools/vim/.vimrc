@@ -21,6 +21,9 @@ call plug#end()
 	set encoding=utf-8
 	set number relativenumber
 
+" Clipboard:
+	set clipboard=unnamedplus
+
 " Enable autocompletion:
 	set wildmode=longest,list,full
 
