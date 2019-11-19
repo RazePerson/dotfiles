@@ -20,6 +20,9 @@ call plug#end()
 	syntax on
 	set encoding=utf-8
 	set number relativenumber
+	set tabstop=4
+	set hlsearch
+	set autoindent
 
 " Clipboard:
 	set clipboard=unnamedplus
