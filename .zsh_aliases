@@ -5,8 +5,7 @@ alias zshaliases="vim $DOTFILES_HOME/.zsh_aliases"
 alias q="exit"
 alias vimconfig="vim $DOTFILES_HOME/tools/vim/.vimrc"
 
-#Uncomment if you want to use python3:
 alias python=/usr/bin/python2.7
 
-#Aliases to take out
+# Aliases to take out
 unalias gp
