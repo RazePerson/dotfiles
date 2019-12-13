@@ -23,6 +23,7 @@ call plug#end()
 	set tabstop=4
 	set hlsearch
 	set autoindent
+	colorscheme sublimemonokai
 
 " Clipboard:
 	set clipboard=unnamedplus
