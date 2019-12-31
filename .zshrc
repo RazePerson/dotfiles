@@ -6,7 +6,7 @@ export DOTFILES_HOME=$(dirname $0)
 
 ZSH_THEME="bira"
 
-plugins=(git zsh-autosuggestions docker)
+plugins=(git docker)
 
 source $ZSH/oh-my-zsh.sh
 

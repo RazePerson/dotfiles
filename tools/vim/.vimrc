@@ -23,6 +23,9 @@ call plug#end()
 	set tabstop=4
 	set hlsearch
 	set autoindent
+	set directory^=$HOME/.vim/tmp//
+
+" Colorscheme:
 	colorscheme sublimemonokai
 
 " Clipboard:
