@@ -1,6 +1,6 @@
 let mapleader =","
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/autoload')
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/goyo.vim'
@@ -23,10 +23,12 @@ call plug#end()
 	set tabstop=4
 	set hlsearch
 	set autoindent
+	set autoread
 	set directory^=$HOME/.vim/tmp//
 
 " Colorscheme:
 	colorscheme sublimemonokai
+	hi Normal guibg=NONE ctermbg=NONE
 
 " Clipboard:
 	set clipboard=unnamedplus
@@ -45,6 +47,9 @@ call plug#end()
 
 " Split open at bottom and right instead of top and left:
 	set splitbelow splitright
+
+" Reload file F5
+	nnoremap <F5> :e<CR>
 
 " Shortcutting for console mode:
 	cnoremap <C-j> <Down>

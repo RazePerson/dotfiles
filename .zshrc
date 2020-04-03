@@ -4,9 +4,9 @@
 export ZSH="/home/$USER/.oh-my-zsh"
 export DOTFILES_HOME=$(dirname $0)
 
-ZSH_THEME="bira"
+ZSH_THEME="amuse"
 
-plugins=(git docker)
+plugins=(git docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -23,6 +23,7 @@ export PATH=$PATH:~/.vim/bundle/vim-live-latex-preview/bin
 export PATH=$PATH:~/tools/bin
 
 export READER='qpdfview'
+export PROMPT_EOL_MARK=''
 
 # VIM MODE:
 # bindkey -v
