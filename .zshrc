@@ -6,7 +6,9 @@ export DOTFILES_HOME=$(dirname $0)
 
 ZSH_THEME="amuse"
 
-plugins=(git docker docker-compose)
+plugins=(git docker docker-compose tmux)
+
+stty -ixon
 
 source $ZSH/oh-my-zsh.sh
 
@@ -24,6 +26,10 @@ export PATH=$PATH:~/tools/bin
 
 export READER='qpdfview'
 export PROMPT_EOL_MARK=''
+
+# Command history limit
+HISTSIZE=999999999
+SAVEHIST=$HISTSIZE
 
 # VIM MODE:
 # bindkey -v

@@ -4,8 +4,9 @@ alias zshconfig="vim $DOTFILES_HOME/.zshrc"
 alias zshaliases="vim $DOTFILES_HOME/.zsh_aliases"
 alias q="exit"
 alias vimconfig="vim $DOTFILES_HOME/tools/vim/.vimrc"
+alias tmuxconfig="vim $DOTFILES_HOME/tools/tmux/.tmux.conf"
 
-alias python=/usr/bin/python2.7
+#alias python=/usr/bin/python2.7
 
 alias myip="curl ifconfig.me"
 
