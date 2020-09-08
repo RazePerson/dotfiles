@@ -75,6 +75,8 @@ if [ ! -f /var/run/resume-after-reboot ]; then
 	done
 else
   echo "resuming script after reboot.."
+	install_after_reboot
+  # continue with rest of the script
 
   # Remove the line that we added in zshrc
   sed -i '/bash/d' ~/.zshrc
@@ -82,6 +84,4 @@ else
   # remove the temporary file that we created to check for reboot
   sudo rm -f /var/run/resume-after-reboot
 
-	install_after_reboot
-  # continue with rest of the script
 fi
