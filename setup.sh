@@ -5,9 +5,9 @@ set -euxo pipefail
 install_before_reboot() {
 
 	echo "Updating and installing vim, the tools for it"
-	apt update -y
-	apt install zsh -y
-  apt install powerline fonts-powerline -y
+  sudo apt update -y
+	sudo apt install zsh -y
+  sudo apt install powerline fonts-powerline -y
 
 	echo "Cloning Oh My Zsh repo"
 	git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
@@ -27,8 +27,8 @@ install_after_reboot() {
 	echo $default_source_vim > ~/.vimrc
 
 	echo "Installing curl and pulling autoload vim plugin"
-	apt update -y
-	apt install curl -y
+	sudo apt update -y
+	sudo apt install curl -y
 
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -58,15 +58,14 @@ if [ ! -f /var/run/resume-after-reboot ]; then
   echo "$script" >> ~/.bashrc
 
   # create a flag file to check if we are resuming from reboot.
-  touch /var/run/resume-after-reboot
+  sudo touch /var/run/resume-after-reboot
 
   echo "rebooting.."
   # reboot here
-	reboot
+	sudo reboot
 
 else
   echo "resuming script after reboot.."
-	sleep 3
 
   # Remove the line that we added in zshrc
   sed -i '/bash/d' ~/.bashrc
