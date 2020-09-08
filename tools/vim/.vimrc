@@ -22,7 +22,7 @@ call plug#end()
 	syntax on
 	set encoding=utf-8
 	set number relativenumber
-	set tabstop=4
+	set tabstop=2
 	set hlsearch
 	set autoindent
 	set autoread
