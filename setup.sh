@@ -52,7 +52,7 @@ if [ ! -f /var/run/resume-after-reboot ]; then
 	install_before_reboot
 
   # Preparation for reboot
-  script="bash ~/dotfiles/setup.sh"
+  script="gnome-terminal -- ~/dotfiles/setup.sh"
 
   # add this script to zsh so it gets triggered immediately after reboot
   # change it to .bashrc if using bash shell
