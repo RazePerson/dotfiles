@@ -55,20 +55,29 @@ if [ ! -f /var/run/resume-after-reboot ]; then
 
   # add this script to zsh so it gets triggered immediately after reboot
   # change it to .bashrc if using bash shell
-  echo "$script" >> ~/.bashrc
+  echo "$script" >> ~/.zshrc
 
   # create a flag file to check if we are resuming from reboot.
   sudo touch /var/run/resume-after-reboot
 
   echo "rebooting.."
   # reboot here
-	sudo reboot
-
+	echo
+	echo "You are about to reboot"
+	echo
+	while true; do
+	    read -p "Do you wish to reboot" yn
+	    case $yn in
+	        [Yy]* ) sudo reboot; break;;
+	        [Nn]* ) exit;;
+	        * ) echo "Please answer yes or no.";;
+	    esac
+	done
 else
   echo "resuming script after reboot.."
 
   # Remove the line that we added in zshrc
-  sed -i '/bash/d' ~/.bashrc
+  sed -i '/bash/d' ~/.zshrc
 
   # remove the temporary file that we created to check for reboot
   sudo rm -f /var/run/resume-after-reboot
