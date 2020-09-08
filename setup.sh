@@ -59,10 +59,11 @@ if [ ! -f /var/run/resume-after-reboot ]; then
   echo "$script" >> ~/.zshrc
 
   # create a flag file to check if we are resuming from reboot.
-  sudo touch /var/run/resume-after-reboot
+  touch /var/run/resume-after-reboot
 
   echo "rebooting.."
   # reboot here
+	reboot
 
 else
   echo "resuming script after reboot.."
