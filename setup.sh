@@ -41,7 +41,7 @@ install_after_reboot() {
 	echo "Opening vimrc."
 	vim ~/dotfiles/tools/vim/.vimrc
 
-	exec ~/.zshrc || true
+	sudo exec /bin/zsh || true
 }
 
 # check if the reboot flag file exists.
