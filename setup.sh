@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eo pipefail
+set -euo pipefail
 
 install_before_reboot() {
 
@@ -39,8 +39,9 @@ install_after_reboot() {
   ln -s ~/dotfiles/tools/vim/colors ~/.vim/colors
 
 	echo "Opening vimrc."
-	vim ~/dotfiles/tools/vim/.vimrc
+	vim -E -c PlugInstall -c qa!
 
+	echo "Switching to zsh."
 	zsh
 }
 
