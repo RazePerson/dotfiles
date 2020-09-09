@@ -1,33 +1,33 @@
 #!/bin/bash
 
-set -euxo pipefail
+set -euo pipefail
 
 install_before_reboot() {
 
-	echo "Updating and installing vim, the tools for it"
+	echo "Updating and installing vim, the tools for it."
   sudo apt update -y
 	sudo apt install zsh \
   	powerline \
 		fonts-powerline -y
 
-	echo "Cloning Oh My Zsh repo"
+	echo "Cloning Oh My Zsh repo."
 	git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
-	echo "Changing shell to zsh"
+	echo "Changing shell to zsh."
 	chsh -s /bin/zsh
 }
 
 install_after_reboot() {
 
-	echo "Cofiguring zshrc in home dir"
+	echo "Cofiguring zshrc in home dir."
 	default_source_zsh="source ~/dotfiles/.zshrc"
 	echo $default_source_zsh > ~/.zshrc
 
-	echo "Configuring vimrc in home dir"
+	echo "Configuring vimrc in home dir."
 	default_source_vim="source ~/dotfiles/tools/vim/.vimrc"
 	echo $default_source_vim > ~/.vimrc
 
-	echo "Installing curl and pulling autoload vim plugin"
+	echo "Installing curl and pulling autoload vim plugin."
 	sudo apt update -y
 	sudo apt install curl \
 		tmux -y
@@ -35,21 +35,19 @@ install_after_reboot() {
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-	echo "Opening vimrc"
+	echo "Opening vimrc."
 	vim ~/dotfiles/tools/vim/.vimrc
 
-	echo "Linking colors to vim"
+	echo "Linking colors to vim."
   ln -s ~/dotfiles/tools/vim/colors ~/.vim/colors
 
 	source ~/.zshrc
 }
 
-# filename: reload_bash_shell.sh
-
 # check if the reboot flag file exists.
 # We created this file before rebooting.
 if [ ! -f ~/resume-after-reboot ]; then
-  echo "Running script for the first time.."
+  echo "Running script for the first time..."
 
   # run your scripts here
   install_before_reboot
@@ -64,25 +62,21 @@ if [ ! -f ~/resume-after-reboot ]; then
   # create a flag file to check if we are resuming from reboot.
   touch ~/resume-after-reboot
 
-  echo "rebooting.."
+  echo "rebooting..."
   # reboot here
 	echo
-	echo "You are about to reboot"
+	echo "You are about to reboot. If you do not reboot now you have to reboot later for the changes to take effect."
 	echo
 	while true; do
-	    read -p "Do you wish to reboot" yn
+	    read -p "Do you wish to reboot?" yn
 	    case $yn in
 	        [Yy]* ) sudo reboot; break;;
 	        [Nn]* ) exit;;
-	        * ) echo "Please answer yes or no.";;
+	        * ) echo "Please answer y or n!";;
 	    esac
 	done
 else
-  echo "resuming script after reboot.."
-
-  # Remove the line that we added in zshrc
-  sed -i '/bash/d' ~/.zshrc
-
+  echo "resuming script after reboot..."
 
   install_after_reboot
   # continue with rest of the script
