@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo pipefail
+set -eo pipefail
 
 install_before_reboot() {
 
@@ -41,7 +41,7 @@ install_after_reboot() {
 	echo "Opening vimrc."
 	vim ~/dotfiles/tools/vim/.vimrc
 
-	sudo exec /bin/zsh || true
+	source ~/.zshrc
 }
 
 # check if the reboot flag file exists.
