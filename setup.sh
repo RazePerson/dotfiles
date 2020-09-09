@@ -35,11 +35,11 @@ install_after_reboot() {
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-	echo "Opening vimrc."
-	vim ~/dotfiles/tools/vim/.vimrc
-
 	echo "Linking colors to vim."
   ln -s ~/dotfiles/tools/vim/colors ~/.vim/colors
+
+	echo "Opening vimrc."
+	vim ~/dotfiles/tools/vim/.vimrc
 
 	source ~/.zshrc
 }
