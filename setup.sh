@@ -6,8 +6,9 @@ install_before_reboot() {
 
 	echo "Updating and installing vim, the tools for it"
   sudo apt update -y
-	sudo apt install zsh -y
-  sudo apt install powerline fonts-powerline -y
+	sudo apt install zsh \
+  	powerline \
+		fonts-powerline -y
 
 	echo "Cloning Oh My Zsh repo"
 	git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
@@ -28,7 +29,8 @@ install_after_reboot() {
 
 	echo "Installing curl and pulling autoload vim plugin"
 	sudo apt update -y
-	sudo apt install curl -y
+	sudo apt install curl \
+		tmux -y
 
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -38,17 +40,19 @@ install_after_reboot() {
 
 	echo "Linking colors to vim"
   ln -s ~/dotfiles/tools/vim/colors ~/.vim/colors
+
+	source ~/.zshrc
 }
 
 # filename: reload_bash_shell.sh
 
 # check if the reboot flag file exists.
 # We created this file before rebooting.
-if [ ! -f /var/run/resume-after-reboot ]; then
+if [ ! -f ~/resume-after-reboot ]; then
   echo "Running script for the first time.."
 
   # run your scripts here
-	install_before_reboot
+  install_before_reboot
 
   # Preparation for reboot
   script="bash ~/dotfiles/setup.sh"
@@ -58,7 +62,7 @@ if [ ! -f /var/run/resume-after-reboot ]; then
   echo "$script" >> ~/.zshrc
 
   # create a flag file to check if we are resuming from reboot.
-  sudo touch /var/run/resume-after-reboot
+  touch ~/resume-after-reboot
 
   echo "rebooting.."
   # reboot here
@@ -75,13 +79,15 @@ if [ ! -f /var/run/resume-after-reboot ]; then
 	done
 else
   echo "resuming script after reboot.."
-	install_after_reboot
-  # continue with rest of the script
 
   # Remove the line that we added in zshrc
   sed -i '/bash/d' ~/.zshrc
 
+
+  install_after_reboot
+  # continue with rest of the script
+
   # remove the temporary file that we created to check for reboot
-  sudo rm -f /var/run/resume-after-reboot
+  rm -f ~/resume-after-reboot
 
 fi
