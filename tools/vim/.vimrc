@@ -26,7 +26,11 @@ call plug#end()
 	set hlsearch
 	set autoindent
 	set autoread
+	set cursorcolumn
+	set cursorline
 	set directory^=$HOME/.vim/tmp//
+
+	set backspace=indent,eol,start
 
 " Colorscheme:
 	colorscheme molokai
