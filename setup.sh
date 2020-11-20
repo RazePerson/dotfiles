@@ -38,6 +38,9 @@ install_after_reboot() {
 	echo "Linking colors to vim."
   ln -s ~/dotfiles/tools/vim/colors ~/.vim/colors
 
+	echo "Installing vim-gtk."
+	sudo apt install vim-gtk -y
+
 	echo "Installing the vim plugins with PlugInstall."
 	vim -E -c PlugInstall -c qa!
 
