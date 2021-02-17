@@ -10,6 +10,9 @@ plugins=(git docker docker-compose tmux)
 
 stty -ixon
 
+# STDERRED
+export LD_PRELOAD="/home/tamas/stderred/build/libstderred.so${LD_PRELOAD:+:$LD_PRELOAD}"
+
 source $ZSH/oh-my-zsh.sh
 
 #if [ -d "/opt/java/jdk-12.0.1/bin" ]; then
@@ -27,9 +30,9 @@ export PATH=$PATH:~/tools/bin
 export READER='qpdfview'
 export PROMPT_EOL_MARK=''
 
-# Command history limit
-HISTSIZE=999999999
-SAVEHIST=$HISTSIZE
+# Command history configuration
+export HISTFILESIZE=1000000000
+export HISTSIZE=1000000000
 
 # VIM MODE:
 # bindkey -v

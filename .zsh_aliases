@@ -6,7 +6,8 @@ alias q="exit"
 alias vimconfig="vim $DOTFILES_HOME/tools/vim/.vimrc"
 alias tmuxconfig="vim $DOTFILES_HOME/tools/tmux/.tmux.conf"
 
-alias "c=xclip"
+alias watch='watch '
+alias "c=xclip -selection clipboard"
 alias "v=xclip -o"
 
 alias python=/usr/bin/python3
